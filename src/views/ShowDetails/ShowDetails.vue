@@ -1,0 +1,59 @@
+<template>
+  <div class="div">
+    <h1 class="showTitle"><u>{{ showDetails.name }}</u></h1>
+    <div class="details">
+      <div class="data">
+        <img class="mainimg" v-if="showDetails?.image !== null" :src="showDetails.image.medium" alt="Image from Show">
+        <img class="mainimg" v-else src="https://upload.wikimedia.org/wikipedia/commons/1/14/No_Image_Available.jpg" alt="No image">
+        <a v-if="showDetails?.officialSite !== null" :href="showDetails.officialSite">
+          <button class="btn">Watch</button>
+        </a>
+      </div>
+      <div class="info">
+        <div class="summary">
+          <p> <span class="sub"><strong>Summary: &nbsp; </strong></span> {{ showPlot }}</p>
+        </div>
+        <div class="cast" v-if="castList.length">
+          <p class="m0 sub"><strong>Cast: &nbsp; </strong></p>
+          <div v-for="(cast, index) in castList" :key="index">
+            <p class="m0"> {{ cast.person.name }} <span v-if="index < castList.length-1"> &comma; &nbsp;</span> </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
+
+<script>
+import { mapState } from 'vuex';
+import tvShowService from '@/service/tvShowService';
+import { HOMEVIEW } from '@/constants/constants';
+
+export default {
+  name: "ShowDetails",
+  data() {
+    return {
+        castList: [],
+        showPlot: '',
+    };
+  },
+  async created() {
+    if(this.showDetails.id){
+      this.castList = await tvShowService.getCastList(this.showDetails.id);
+      this.showPlot = this.removeTags(this.showDetails.summary);
+    }
+    else{
+      this.$router.push({ name: HOMEVIEW });
+    }
+  },
+  computed: {
+    ...mapState(['showDetails']),
+  },
+  methods: {
+    removeTags(input) {
+      const string = JSON.stringify(input);
+      return string.replace( /(<([^>]+)>)/ig, '');
+    },
+  }
+};
+</script>
