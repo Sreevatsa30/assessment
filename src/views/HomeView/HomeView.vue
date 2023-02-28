@@ -1,44 +1,44 @@
 <template>
-    <!-- <div v-if="tvShowsList?.length">
-        {{ tvShowsList }}
-        <PopularShows 
-          :showList="tvShowsList"
-        />
-    </div> -->
-    <div v-for="genre in genres" :key="genre">
-        <PopularShows
-          :showList="sortedList[genre]"
-          :title="genre"
-        />
-    </div>
+  <div v-for="genre in genres" :key="genre">
+    <PopularShows :showList="sortedList[genre]" :title="genre" />
+  </div>
 </template>
 
 <script>
 import PopularShows from "@/components/PopularShows/PopularShows.vue";
-import tvShowService from '@/service/tvShowService';
-// import { mapState } from 'vuex';
+import tvShowService from "@/service/tvShowService";
+import { mapActions, mapState } from "vuex";
 
 export default {
-    name: 'HomeView',
-    components: {
-        PopularShows,
-    },
-    data() {
-        return {
-          sortedList: [],
-          genres: ['Action', 'Comedy','Crime','Drama'],
-        };
-    },
-    // methods: {
-    //     ...mapState(['tvShowsList']),
-    // },
-    async mounted() {
-        const allShowsList = await tvShowService.getAllShows();
-        this.genres.forEach((genre) => {
-            this.sortedList[genre] = allShowsList.filter(show => {
-                return show.genres.includes(genre) && show.rating.average > 8.5;
-            })
-        })
-    },
-}
+  name: "HomeView",
+  components: {
+    PopularShows,
+  },
+  data() {
+    return {
+      sortedList: [],
+      genres: ["Action", "Comedy", "Crime", "Drama"],
+    };
+  },
+  methods: {
+    ...mapActions(["setState"]),
+  },
+  computed: {
+    ...mapState(["allShowsList"]),
+  },
+  async created() {
+    if (!this.allShowsList.length) {
+      let list = await tvShowService.getAllShows();
+      this.setState({
+        stateName: "allShowsList",
+        value: list,
+      });
+    }
+    this.genres.forEach((genre) => {
+      this.sortedList[genre] = this.allShowsList.filter((show) => {
+        return show.genres.includes(genre) && show.rating.average > 8.5;
+      });
+    });
+  },
+};
 </script>

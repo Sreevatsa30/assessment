@@ -1,6 +1,6 @@
 <template>
   <div class="main">
-    <h1 class="tag">The TV Guide</h1>
+    <h1 class="title">The TV Guide</h1>
     <SearchBox />
   </div>
   <router-view />

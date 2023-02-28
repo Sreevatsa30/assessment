@@ -1,5 +1,9 @@
 # tv-show-app
 
+## Description
+tv-show-app is an application built using Vue js as framework for developing frontend(UI).
+Vue js is an approachable, performant and versatile Javascript framework for building web user interfaces.
+
 ## Project setup
 ```
 npm install

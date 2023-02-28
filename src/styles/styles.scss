@@ -5,7 +5,7 @@
         flex-wrap: nowrap;
         height: 50px;
     }
-    .tag {
+    .title {
         letter-spacing: 2px;
         color: whitesmoke;
         float: left;
@@ -45,13 +45,26 @@
       div.scrollList div:hover {
         background-color: #777;
       }
-    .m0 {
+    .language {
+        margin: 0px;
+        padding-bottom: 15px;
+    }
+    .rating {
         margin: 0px;
     }
-    .div {
+    .detailsWrapper {
         background-color: #777;
         padding: 25px;
         text-align: center;
+    }
+    .errorpage {
+        background-color: #777;
+        padding: 25px;
+        text-align: center;
+        color: whitesmoke;
+    }
+    .nodata {
+        color: whitesmoke;
     }
     .detailcard {
         width: 20%;
@@ -61,14 +74,22 @@
     }
     .cardTitle {
         color: whitesmoke;
+        margin: 0px;
+        padding-top: 15px;
         font-family: 'Times New Roman', Times, serif;
     }
     .detailCardTitle {
         color: #333;
         font-family: 'Times New Roman', Times, serif;
+        margin: 0px;
+        padding: 15px;
     }
     .image {
         width: 100%;
+    }
+    .noimage {
+        width: 100%;
+        height: 69%;
     }
     .detailsbox {
         display: flex;
@@ -82,35 +103,50 @@
     .showTitle {
         color: whitesmoke;
         font-family: Arial, Helvetica, sans-serif;
+        margin: 0px;
+        padding: 15px 0px;
     }
     .details {
         display: flex;
         flex-wrap: nowrap;
-        margin: 2% 10%;
     }
-    .inline {
+    .genre {
         display: inline-block;
+        margin: 0px;
     }
     .sub {
         color: black;
         font-family: cursive;
+        margin: 0px;
     }
     .cast {
         display: flex;
         flex-wrap: wrap;
         color: whitesmoke;
         line-height: 25px;
+        margin: 0px;
     }
     .summary {
         color: whitesmoke;
         line-height: 25px;
     }
+    .back {
+        float: left;
+        color: #333;
+        width: 70px;
+        height: 25px;
+        border-radius: 10px;
+        border: 0px;
+        font-size: 15px;
+        cursor: pointer;
+        background-color: whitesmoke;
+    }
     .btn {
         color: whitesmoke;
-        margin-left: 5%;
+        margin-left: 4%;
         margin-top: 10%;
-        width: 80px;
-        height: 45px;
+        width: 100px;
+        height: 50px;
         border-radius: 10px;
         border: 0px;
         font-size: 17px;
@@ -125,7 +161,7 @@
     }
     .info {
         display: block;
-        margin-left: 10%;
+        margin-left: 5%;
         text-align: left;
         font-size: medium;
     }
@@ -134,10 +170,11 @@
 @media (max-width: 767px) {
     .main {
         background-color: #333;
-        height: 75px;
+        height: 90px;
         text-align: center;
     }
-    .tag {
+    .title {
+        padding-top: 10px;
         letter-spacing: 2px;
         color: whitesmoke;
         font-family: Arial, Helvetica, sans-serif;
@@ -146,8 +183,9 @@
     .searchbox {
         margin-top: 2%;
         padding-left: 10px;
-        height: 25%;
-        border-radius: 5px;
+        height: 30%;
+        width: 40%;
+        border-radius: 6px;
         border: 1px solid;
     }
     .scrollTitle {
@@ -173,21 +211,34 @@
         color: whitesmoke;
         font-family: 'Times New Roman', Times, serif;
     }
-    .div {
-        width: 75%;
+    .detailsWrapper {
         background-color: #777;
-        padding: 25px;
+        padding: 15px;
         text-align: center;
         margin-right: 0px;
     }
+    .errorpage {
+        background-color: #777;
+        padding: 25px;
+        text-align: center;
+        color: whitesmoke;
+    }
+    .nodata {
+        color: whitesmoke;
+    }
     .detailcard {
-        width: 120%;
+        width: 90%;
         background-color: whitesmoke;
         text-align: center;
-        margin: 5% 0%;
+        margin: 15px 0px;
+        margin-left: 6%;
     }
     .image {
         width: 100%;
+    }
+    .noimage {
+        width: 100%;
+        height: 73%;
     }
     .detailCardTitle {
         color: #333;
@@ -197,19 +248,25 @@
     .showTitle {
         color: whitesmoke;
         font-family: Arial, Helvetica, sans-serif;
+        margin: 0px;
+        padding-bottom: 15px;
     }
     .details {
         display: block;
-        margin: 2% 10%;
         text-align: center;
     }
     .data {
         display: block;
     }
-    .inline {
-        display: inline-block;
+    .language {
+        margin: 0px;
+        padding-bottom: 15px;
     }
-    .m0 {
+    .rating {
+        margin: 0px;
+    }
+    .genre {
+        display: inline-block;
         margin: 0px;
     }
     .href {
@@ -224,8 +281,8 @@
     .btn {
         color: whitesmoke;
         margin-top: 5%;
-        width: 80px;
-        height: 45px;
+        width: 100px;
+        height: 50px;
         border-radius: 10px;
         border: 0px;
         font-size: 17px;
@@ -245,12 +302,14 @@
     .sub {
         color: black;
         font-family: cursive;
+        margin: 0px;
     }
     .cast {
         display: flex;
         flex-wrap: wrap;
         color: whitesmoke;
         line-height: 20px;
+        margin: 0px;
     }   
 }
 

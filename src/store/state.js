@@ -1,4 +1,5 @@
 export default {
-tvShowsList: [],
-showDetails: [],
+  tvShowsList: [],
+  allShowsList: [],
+  showDetails: [],
 };
