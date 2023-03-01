@@ -1,6 +1,13 @@
 .DS_Store
+Thumbs.db
+
+#dependencies
 node_modules
+
+#compiled output
 /dist
+/temp
+/test
 
 
 # local env files
@@ -21,3 +28,9 @@ pnpm-debug.log*
 *.njsproj
 *.sln
 *.sw?
+
+
+npm-debug.log
+tests/unit/reports
+tests/performance/reports
+

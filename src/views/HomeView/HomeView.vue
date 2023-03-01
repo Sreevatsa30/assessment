@@ -28,11 +28,15 @@ export default {
   },
   async created() {
     if (!this.allShowsList.length) {
-      let list = await tvShowService.getAllShows();
-      this.setState({
-        stateName: "allShowsList",
-        value: list,
-      });
+      try {
+        let list = await tvShowService.getAllShows();
+        this.setState({
+          stateName: "allShowsList",
+          value: list,
+        });
+      } catch (error) {
+        console.log(error);
+      }
     }
     this.genres.forEach((genre) => {
       this.sortedList[genre] = this.allShowsList.filter((show) => {

@@ -1,28 +1,24 @@
 import { mount } from "@vue/test-utils";
+import HomeView from "@/views/HomeView/HomeView.vue";
 import { createStore } from "vuex";
-import ShowDetails from "@/views/ShowDetails/ShowDetails.vue";
 
-const state = {
-  showDetails: {
-    id: null,
-  },
-};
+jest.mock("@/service/tvShowService", () => ({ getAllShows: jest.fn() }));
 
 const store = createStore({
-  state,
+  state: {
+    allShowsList: [],
+  },
+  actions: {
+    setState: jest.fn(),
+  },
 });
 
-describe("ShowDetails.vue", () => {
+describe("HomeView.vue", () => {
   let wrapper;
   beforeAll(() => {
-    wrapper = mount(ShowDetails, {
+    wrapper = mount(HomeView, {
       global: {
         plugins: [store],
-        mocks: {
-          $router: {
-            push: jest.fn(),
-          },
-        },
       },
     });
   });

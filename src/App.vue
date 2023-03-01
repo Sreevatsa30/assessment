@@ -7,13 +7,13 @@
 </template>
 
 <script>
-import SearchBox from '@/components/SearchBox/SearchBox.vue';
+import SearchBox from "@/components/SearchBox/SearchBox.vue";
 
 export default {
   name: "App",
   components: {
     SearchBox,
-  }
+  },
 };
 </script>
 <style lang="scss">
